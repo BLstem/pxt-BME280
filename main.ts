@@ -134,19 +134,16 @@ namespace BME280 {
     /**
      * power on
      */
-    //% blockId="BME280_POWER_ON" block="Power On"
+    //% blockId="BME280_POWER_ON" block="Power %on"
     //% weight=61 blockGap=8
-    export function PowerOn() {
-        setreg(0xF4, 0x2F)
-    }
-
-    /**
-     * power off
-     */
-    //% blockId="BME280_POWER_OFF" block="Power Off"
-    //% weight=60 blockGap=8
-    export function PowerOff() {
-        setreg(0xF4, 0)
+    //% on.shadow="toggleOnOff"
+    export function PowerOn(on: boolean) {
+        if (on){
+            setreg(0xF4, 0x2F)
+        }
+        else {
+            setreg(0xF4, 0)
+        }
     }
 
     /**
