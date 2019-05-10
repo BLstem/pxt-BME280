@@ -10,20 +10,11 @@ makecode BME280 Digital Pressure and Humidity Sensor package for micro:bit
 
 ## API
 
-- function pressure()  
-get pressure in pa  
+- function get(data)  
+get pressure/ temperature/ humidity in pa/ Celsius/ percentage repectively
 
-- function temperature()  
-return temperature in Celsius.
-
-- function humidity()
-return humidity in percent
-
-- function PowerOn()
-turn on BME280.
-
-- function PowerOff()  
-goto sleep mode  
+- function PowerOn(on: boolean)
+turn on or off BME280.
 
 - function Address(addr: BME280_I2C_ADDRESS)  
 set BME280's I2C address. addr may be:  
