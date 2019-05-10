@@ -11,6 +11,15 @@ enum BME280_I2C_ADDRESS {
     ADDR_0x77 = 0x77
 }
 
+enum data {
+    //% block="pressure"
+    pressure, 
+    //% block="temperature"
+    temperature, 
+    //% block="humidity"
+    humidity
+}
+
 /**
  * BME280 block
  */
@@ -102,33 +111,18 @@ namespace BME280 {
     }
 
     /**
-     * get pressure
+     * get reading
      */
-    //% blockId="BME280_GET_PRESSURE" block="get pressure"
-    //% weight=80 blockGap=8
-    export function pressure(): number {
+    //% block="get %reading"
+    //% weight=80
+    export function readingdata(reading: data): number{
         get();
-        return P;
-    }
-
-    /**
-     * get temperature
-     */
-    //% blockId="BME280_GET_TEMPERATURE" block="get temperature"
-    //% weight=80 blockGap=8
-    export function temperature(): number {
-        get();
-        return T;
-    }
-
-    /**
-     * get humidity
-     */
-    //% blockId="BME280_GET_HUMIDITY" block="get humidity"
-    //% weight=80 blockGap=8
-    export function humidity(): number {
-        get();
-        return H;
+        switch (reading){
+            case 0: return P;
+            case 1: return T;
+            case 2: return H;
+            default: return 0;
+        }
     }
 
     /**
