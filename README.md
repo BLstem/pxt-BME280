@@ -10,7 +10,7 @@ makecode BME280 Digital Pressure and Humidity Sensor package for micro:bit
 
 ## API
 
-- function get(data)  
+- function readingdata(reading: data)  
 get pressure/ temperature/ humidity in pa/ Celsius/ percentage repectively
 
 - function PowerOn(on: boolean)
